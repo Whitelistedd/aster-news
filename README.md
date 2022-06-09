@@ -12,11 +12,9 @@
 
 ## О проекте
 
-[https://i.imgur.com/R9MHNCK.png](https://imgur.com/R9MHNCK)
+![картина проекта](https://i.imgur.com/R9MHNCK.png)
 
 это веб-сайт, который предоставляет вам последние новости из выбранной категории, а также фальшивую страницу входа, имитирующую настоящую
-
-<p align="right">(<a href="#top">наверх</a>)</p>
 
 ### Создано с
 
@@ -25,8 +23,6 @@
 - [ReduxToolkit](https://redux-toolkit.js.org/)
 - [Styled-Components](https://styled-components.com/)
 - [NewsAPI](https://newscatcherapi.com/)
-
-<p align="right">(<a href="#top">наверх</a>)</p>
 
 <!-- НАЧАЛО -->
 
@@ -58,5 +54,3 @@
    ```env
    REACT_APP_NEWS_APIKEY = ВВЕДИТЕ ВАШ API
    ```
-
-<p align="right">(<a href="#top">наверх</a>)</p>
