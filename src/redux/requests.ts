@@ -1,4 +1,3 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { AppDispatchType } from './store';
@@ -13,22 +12,7 @@ export const loginRequest = ({dispatch,Username, Password} : ({dispatch : AppDis
     }
 }
 
-interface Data {
-    title: string,
-    summary: string,
-    media: string,
-    rights: string,
-    published_date: string,
-    link: string,
+export const getAllNews = (category : string, key? : string) => {
+    const response = axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?countries=RU&topic=${category}&page_size=10`, {headers: {'x-api-key': `${key}`}})
+    return response
 }
-
-export const fetchAllNews = createAsyncThunk<
-Array<Data>,
-{category: string, key: string}
->(
-    'user/fetchAllNews',
-    async ({category,key} : {category: string, key: string}, thunkAPI) => {
-      const response = await axios.get(`https://api.newscatcherapi.com/v2/latest_headlines?countries=RU&topic=${category}&page_size=10`, {headers: {'x-api-key': `${key}`}})
-      return response.data.articles
-    }
-  )

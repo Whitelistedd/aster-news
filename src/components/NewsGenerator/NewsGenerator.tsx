@@ -1,28 +1,40 @@
 import { Skeleton } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { fetchAllNews } from '../../redux/requests';
-import { AppDispatch, useAppSelector } from '../../redux/store';
+import { getAllNews } from '../../redux/requests';
 import { News } from '../News/News';
+
+interface StateType {
+    title: string,
+    summary: string,
+    media: string,
+    rights: string,
+    published_date: string,
+    link: string,
+}
+
+interface Props {
+    title: string,
+    category: string,
+}
 
 const SkeletonCount = [1,2,3,4,5]
 
-const key = process.env.REACT_APP_NEWS_APIKEY as string
-
-interface Props {
-  title: string,
-  category: string
-}
+const key = process.env.REACT_APP_NEWS_APIKEY
 
 export const NewsGenerator : React.FC<Props> = ({title,category}) => {
 
-    const dispatch = AppDispatch()
-    const news = useAppSelector((state) => state.NewsData);
-  
+    const [news,setNews] = useState<StateType[]>([])
+
     useEffect(() => {
       const getNews = async () => {
-          dispatch(fetchAllNews({category,key}))
+        try {
+          const response = await getAllNews(category,key)
+          setNews(response.data.articles)
+        } catch(err) {
+          console.log(err)
+        }
       }
       getNews()
     },[category])
