@@ -1,30 +1,19 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Navbar } from '../../components/Navbar/Navbar';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
-import { AppDispatchType, RootState } from '../../redux/store';
+import { AppDispatch, useAppSelector } from '../../redux/store';
 import { logOut } from '../../redux/user';
 
 
 export const Profile = () => {
 
-    const dispatch = useDispatch<AppDispatchType>()
-    const loggedInState = useSelector<RootState>((state) => state.loggedIn);
-    const username = useSelector<RootState>((state) => state.username);
-    const navigate = useNavigate()
-
+    const dispatch = AppDispatch()
+    const username = useAppSelector((state) => state.username);
     const handleLogOut = () => {
         dispatch(logOut())
     }
-
-    useEffect(() => {
-        if(!loggedInState) {
-            navigate("/login", {replace: true})
-        }
-    },[loggedInState])
 
     return (
         <>

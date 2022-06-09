@@ -127,31 +127,13 @@ const Container = styled.div`
     padding: 1em 1em;
     border-radius: 0px;
     width: 100%;
-    /* ${Title} {
-      font-size: 1.3rem;
-    }
-    ${Description} {
-      font-size: 1.1rem;
-    } */
     ${Image} {
       min-width: 35%;
     }
-    /* ${Detail} {
-      font-size: 0.9rem;
-    } */
   }
 
   @media only screen and (max-width: ${devices.Tablet}) {
     height: 300px;
-    /* ${Title} {
-      font-size: 1.5rem;
-    }
-    ${Description} {
-      font-size: 1.2rem;
-    }
-    ${Detail} {
-      font-size: 0.85rem;
-    } */
   }
 
   @media only screen and (max-width: ${devices.Mobile}) {
@@ -164,24 +146,4 @@ const Container = styled.div`
       object-fit: contain;
     }
   }
-
-  /* @media only screen and (max-width: ${devices.Mobile}) {
-    min-height: 150px;
-    height: 100%;
-    box-shadow: 0px 0px 0px #0000004c;
-    ${Image} {
-      min-height: 50%;
-      height: 50%;
-      object-fit: contain;
-    }
-    ${Title} {
-      font-size: clamp(0.65rem, 5vw - 1rem, 1rem);
-    }
-    ${Description} {
-      font-size: clamp(0.65rem, 5vw - 1rem, 0.8rem);
-    }
-    ${Detail} {
-      font-size: 0.5rem;
-    }
-  } */
 `

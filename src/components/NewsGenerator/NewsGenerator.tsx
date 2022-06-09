@@ -31,7 +31,7 @@ export const NewsGenerator : React.FC<Props> = ({title,category}) => {
       const getNews = async () => {
         try {
           const response = await getAllNews(category,key)
-          setNews(response.data.articles)
+          setNews(response?.data?.articles)
         } catch(err) {
           console.log(err)
         }

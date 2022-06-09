@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import { PrivateRoute } from './components/private-routes';
 import { Business } from './pages/Business/Business';
 import { Gaming } from './pages/Gaming/Gaming';
 import { Home } from './pages/Home/Home';
@@ -17,7 +18,9 @@ export const App : React.FC = () => {
         <Route path="/Gaming" element={<Gaming />}  />
         <Route path="/Technology" element={<Technology />}  />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<PrivateRoute />} >
+            <Route path="profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
