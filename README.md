@@ -8,34 +8,6 @@
   </p>
 </div>
 
-<!-- СОДЕРЖАНИЕ -->
-
-<details>
-
-  <summary>Содержание</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">О проекте</a>
-      </ul>
-        <li><a href="#built-with">Создано</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Начало работы</a>
-      <ul>
-        <li><a href="#prerequisites">Необходимые условия</a></li>
-        <li><a href="#installation">Установка</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Использование</a></li>
-    <li><a href="#roadmap">Дорожная карта</a></li>
-    <li><a href="#contributing">Содействие</a></li>
-    <li><a href="#license">Лицензия</a></li>
-    <li><a href="#contact">Контакт</a></li>
-    <li><a href="#acknowledgments">Благодарности</a></li>
-  </ol>
-</details>
-
 <!-- О ПРОЕКТЕ -->
 
 ## О проекте
