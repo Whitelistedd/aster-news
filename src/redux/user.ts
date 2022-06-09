@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { fetchAllNews } from './requests';
+
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -8,6 +10,7 @@ const userSlice = createSlice({
         error: false,
         Success: false,
         username: "",
+        NewsData: [{title : "",summary: "",media: "",rights: "",published_date: "",link: ""}],
     },
     reducers: {
         loginStart: (state) => {
@@ -30,6 +33,11 @@ const userSlice = createSlice({
             state.Success = false;
         }
     },
+    extraReducers: (builder) => {
+        builder.addCase(fetchAllNews.fulfilled, (state, { payload }) => {
+            state.NewsData = payload
+        })
+    }
 })
 
 export const { loginStart, loginSuccess, loginFailure,logOut } = userSlice.actions;

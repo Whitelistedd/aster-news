@@ -1,20 +1,19 @@
 import { Alert } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { loginRequest } from '../../redux/requests';
-import { AppDispatchType, RootState } from '../../redux/store';
+import { AppDispatch, useAppSelector } from '../../redux/store';
 
 export const LoginForm = () => {
 
     const { register, handleSubmit } = useForm();
-    const dispatch = useDispatch<AppDispatchType>()
-    const errorState = useSelector<RootState>((state) => state.error);
-    const SuccessState = useSelector<RootState>((state) => state.Success);
-    const Loading = useSelector<RootState>((state) => state.Loading);
+    const dispatch = AppDispatch()
+    const errorState = useAppSelector((state) => state.error);
+    const SuccessState = useAppSelector((state) => state.Success);
+    const Loading = useAppSelector((state) => state.Loading);
     const navigate = useNavigate()
   
   

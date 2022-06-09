@@ -73,11 +73,12 @@ const Details = styled.div`
   display: flex;
   gap: 1em;
   font-weight: 600;
+  color: #818080ba;
   font-size: clamp(0.8rem, 5vw - 1rem, 1rem);
 `
 
 const Description = styled.p`
-  color: grey;
+  color: #636262;
   font-size: clamp(0.65rem, 5vw - 1rem, 1.3rem);
   margin-bottom: auto;
 `
