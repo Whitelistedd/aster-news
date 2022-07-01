@@ -7,6 +7,7 @@ export const PrivateRoute = () => {
   const loggedin = useAppSelector((state) => state.loggedIn);
   const location = useLocation();
 
+  /* будет показывать страницу только в том случае, если пользователь вошел в систему */
   return loggedin ? (
     <Outlet />
   ) : (

@@ -7,6 +7,7 @@ interface FetchWeatherType {
     key?: string,
 }
 
+/* функция для получения погоды и температуры в зависимости от местоположения пользователя */
 export const FetchWeather = createAsyncThunk(
     "weather/fetchWeather",
     async (position: FetchWeatherType,thunkAPI) => {
@@ -27,7 +28,6 @@ const WeatherSlice = createSlice({
     },
     reducers: {
         setWeatherAndTemp: (state,actions) => {
-            console.log("w")
             state.weather = actions.payload.weather;
             state.temp = actions.payload.tempature;
         }

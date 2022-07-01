@@ -12,6 +12,7 @@ export const SideInformation = () => {
   const {temp,weather,icon} = useAppSelector(state => state.weather)
   const dispatch = AppDispatch()
 
+  /* активирует функцию погоды, чтобы получить информацию о погоде и температуре */
   useEffect(() => {
     const weather = async () => {
       const response = await getLocationAndWeather({key,dispatch})      

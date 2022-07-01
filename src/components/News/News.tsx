@@ -15,6 +15,7 @@ interface NewsProps {
 
 export const News : React.FC<NewsProps> = ({title, Desc,ImageSrc,source,publishedDate,url }) => {
 
+  /* преобразует дату выпуска в удобочитаемую дату */
   const CovertTime = (publishedDate : string) => {
     const PublishedDate = publishedDate.split(" ")
     const DateAndTime = PublishedDate[0].split("-")
@@ -25,10 +26,12 @@ export const News : React.FC<NewsProps> = ({title, Desc,ImageSrc,source,publishe
     return `${Year}/${Month}/${Day}, ${Time}`
   }
 
+  /* сократит слова, если превысит лимит */
   const ShortenWords = (words : string,limit: number) => {
     return words?.length > limit ? `${Desc?.substring(0, limit)}...` : words
   }
 
+  /* перенаправит на источник страницы новостей */
   const handleRedirect = (url : string) => {
     window.open(url)
   }
@@ -43,6 +46,7 @@ export const News : React.FC<NewsProps> = ({title, Desc,ImageSrc,source,publishe
           <Detail>Дата публикации: {CovertTime(publishedDate)}</Detail>
         </Details>
       </About>
+      {/* если изображение не отображается, оно покажет загружаемое изображение */}
       { ImageSrc ?
         <Image src={ImageSrc} />
         : <Skeleton sx={{borderRadius: "10px"}} variant="rectangular" width={"20vw"} height={"20vh"} />

@@ -8,6 +8,7 @@ const userSlice = createSlice({
         error: false,
         Success: false,
         username: "",
+        search: ""
     },
     reducers: {
         loginStart: (state) => {
@@ -28,9 +29,12 @@ const userSlice = createSlice({
         logOut: (state) => {
             state.loggedIn = false;
             state.Success = false;
-        }
+        },
+        setSearch: (state,action) => {
+            state.search = action.payload.toLowerCase();
+        },
     },
 })
 
-export const { loginStart, loginSuccess, loginFailure,logOut } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure,logOut,setSearch } = userSlice.actions;
 export default userSlice.reducer;

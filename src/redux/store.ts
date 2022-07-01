@@ -8,7 +8,7 @@ import weatherReducer from './weather'
 
 
 const persistConfig = {
-  key: 'root',
+  key: 'AsterNews',
   version: 1,
   storage,
 }

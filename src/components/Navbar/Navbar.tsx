@@ -3,19 +3,26 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { SwipeableDrawer } from '@mui/material';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { devices } from '../../MediaQueries';
-import { RootState } from '../../redux/store';
+import { AppDispatch, useAppSelector } from '../../redux/store';
+import { setSearch } from '../../redux/user';
 import { Sidebar } from '../Sidebar/Sidebar';
 
 export const Navbar: React.FC = () => {
 
-  const LoginState = useSelector<RootState>((state) => state.persisted.loggedIn);
+  const LoginState = useAppSelector((state) => state.persisted.loggedIn);
+  const dispatch = AppDispatch()
   const [mobileState,setMobileState] = useState(false)
 
+  /* отправит действие, если пользователь что-то ищет */
+  const handleSearch = (e : React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearch(e.target.value))
+  }
+
+  /* показать/скрыть мобильное меню */
   const handleMobileNav = () => {
     setMobileState(mobileState ? false : true)
   }
@@ -32,7 +39,7 @@ export const Navbar: React.FC = () => {
         <MobileNav  />
       </SwipeableDrawer>
       <Search>
-        <SearchBar type="text" placeholder="Поиск новостей.." />
+        <SearchBar type="text" onChange={handleSearch} placeholder="Поиск новостей.." />
         <SearchOutlinedIcon />
       </Search>
       <Anchor to={`/${LoginState ? "profile" : "login"}`} >

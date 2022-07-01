@@ -16,11 +16,12 @@ export const LoginForm = () => {
     const Loading = useAppSelector((state) => state.persisted.Loading);
     const navigate = useNavigate()
   
-  
+    /* отправит запрос на вход, если пользователь нажмет кнопку отправки */
     const onSubmit = ({Username, Password} : ({Username: string, Password: string})) => {
       loginRequest({dispatch,Username,Password})
     }
   
+    /* если процесс входа был успешным, он перенаправит пользователя на страницу профиля */
     useEffect(() => {
   
       if(SuccessState) {
