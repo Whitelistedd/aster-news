@@ -17,7 +17,7 @@ export const SideInformation = () => {
       const response = await getLocationAndWeather({key,dispatch})      
     }
     weather()
-  },[])
+  },[temp,weather,icon])
 
   return (
     <Container>
@@ -57,11 +57,6 @@ const Information = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
-
-const Location = styled.h3`
-  border-bottom: 1px solid grey;
-  padding-bottom: 0.5em;
 `
 
 const Weather = styled.div`
