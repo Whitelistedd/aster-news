@@ -29,7 +29,6 @@ export const callWeatherApi = async ({latitude,longitude,key} : {latitude : numb
             const tempature = response.data.main.temp
             const weather = response.data.weather[0].description
             const icon = response.data.weather[0].icon
-            console.log(response)
             return {weather,tempature,icon}
         } catch (err) {
             console.log(err);
