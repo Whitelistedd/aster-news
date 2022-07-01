@@ -11,9 +11,9 @@ export const LoginForm = () => {
 
     const { register, handleSubmit } = useForm();
     const dispatch = AppDispatch()
-    const errorState = useAppSelector((state) => state.error);
-    const SuccessState = useAppSelector((state) => state.Success);
-    const Loading = useAppSelector((state) => state.Loading);
+    const errorState = useAppSelector((state) => state.persisted.error);
+    const SuccessState = useAppSelector((state) => state.persisted.Success);
+    const Loading = useAppSelector((state) => state.persisted.Loading);
     const navigate = useNavigate()
   
   

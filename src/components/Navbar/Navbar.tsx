@@ -13,7 +13,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 
 export const Navbar: React.FC = () => {
 
-  const LoginState = useSelector<RootState>((state) => state.loggedIn);
+  const LoginState = useSelector<RootState>((state) => state.persisted.loggedIn);
   const [mobileState,setMobileState] = useState(false)
 
   const handleMobileNav = () => {

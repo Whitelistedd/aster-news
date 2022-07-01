@@ -8,7 +8,6 @@ const userSlice = createSlice({
         error: false,
         Success: false,
         username: "",
-        NewsData: [{title : "",summary: "",media: "",rights: "",published_date: "",link: ""}],
     },
     reducers: {
         loginStart: (state) => {

@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-import sun from '../../assets/images/sun.svg';
 import { devices } from '../../MediaQueries';
+import { getLocationAndWeather } from '../../redux/requests';
+import { AppDispatch, useAppSelector } from '../../redux/store';
+
+const key = process.env.REACT_APP_WEATHER_APIKEY
 
 export const SideInformation = () => {
+
+  const {temp,weather,icon} = useAppSelector(state => state.weather)
+  const dispatch = AppDispatch()
+
+  useEffect(() => {
+    const weather = async () => {
+      const response = await getLocationAndWeather({key,dispatch})      
+    }
+    weather()
+  },[])
+
   return (
     <Container>
       <Weather>
-        <Location>Россия, Москва</Location>
         <Information>
           <TextWrap>
-            <Type>Солнечно</Type>
-            <Degrees>31°c</Degrees>
+            <Type>{weather}</Type>
+            <Degrees>{temp}°F</Degrees>
           </TextWrap>
-          <Image src={sun} />
+          <Image src={`http://openweathermap.org/img/w/${icon}.png`} />
         </Information>
       </Weather>
     </Container>
@@ -22,8 +35,8 @@ export const SideInformation = () => {
 }
 
 const Image = styled.img`
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
 `
 
 const Degrees = styled.h5`
@@ -43,7 +56,6 @@ const TextWrap = styled.div`
 const Information = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1em 0em;
   align-items: center;
 `
 

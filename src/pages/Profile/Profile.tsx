@@ -10,7 +10,7 @@ import { logOut } from '../../redux/user';
 export const Profile = () => {
 
     const dispatch = AppDispatch()
-    const username = useAppSelector((state) => state.username);
+    const username = useAppSelector((state) => state.persisted.username);
     const handleLogOut = () => {
         dispatch(logOut())
     }
